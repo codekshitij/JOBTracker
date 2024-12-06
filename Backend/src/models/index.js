@@ -1,55 +1,27 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const User = require('./User');
+const Company = require('./Company');
+const Application = require('./Application');
+const Interview = require('./Interview');
+const SavedJob = require('./SavedJob');
 
-// User Model
-const User = sequelize.define('User', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true
-    }
-  }
-});
-
-// Company Model
-const Company = sequelize.define('Company', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  website: DataTypes.STRING,
-  description: DataTypes.TEXT
-});
-
-// Application Model
-const Application = sequelize.define('Application', {
-  jobTitle: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  status: {
-    type: DataTypes.ENUM('applied', 'interviewing', 'offered', 'rejected', 'accepted'),
-    defaultValue: 'applied'
-  },
-  applicationDate: DataTypes.DATE,
-  notes: DataTypes.TEXT
-});
-
-// Define relationships
+// Existing relationships
 User.hasMany(Application);
 Application.belongsTo(User);
 
 Company.hasMany(Application);
 Application.belongsTo(Company);
 
+Application.hasMany(Interview);
+Interview.belongsTo(Application);
+
+// New relationships for SavedJob
+User.hasMany(SavedJob);
+SavedJob.belongsTo(User);
+
 module.exports = {
   User,
   Company,
-  Application
+  Application,
+  Interview,
+  SavedJob
 };

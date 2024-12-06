@@ -1,31 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { User, Company, Application } = require('../models');
 
-// Health check route
-router.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date() });
-});
+const userRoutes = require('./userRoutes');
+const companyRoutes = require('./companyRoutes');
+const applicationRoutes = require('./applicationRoutes');
+const interviewRoutes = require('./interviewRoutes');
+const savedJobRoutes = require('./savedJobRoutes');
 
-// Applications routes
-router.post('/applications', async (req, res) => {
-  try {
-    const application = await Application.create(req.body);
-    res.status(201).json(application);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+// Specify base paths for each module
+router.use('/auth', (req, res, next) => {
+    console.log('Auth route accessed');
+    next();
+}, userRoutes); // `/api/auth/...`
+router.use('/companies', companyRoutes); // `/api/companies/...`
+router.use('/applications', applicationRoutes); // `/api/applications/...`
+router.use('/interviews', interviewRoutes); // `/api/interviews/...`
+router.use('/saved-jobs', savedJobRoutes); // `/api/saved-jobs/...`
 
-router.get('/applications', async (req, res) => {
-  try {
-    const applications = await Application.findAll({
-      include: [Company]
-    });
-    res.json(applications);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
 
 module.exports = router;

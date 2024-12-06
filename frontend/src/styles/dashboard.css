@@ -1,0 +1,228 @@
+/* dashboard.css */
+
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: #f9f9f9;
+}
+
+/* Header Styles */
+.dashboard-header {
+  background-color: #6a0dad;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  font-size: 1.8rem;
+}
+
+.dashboard-header .user-options button {
+  background-color: #ffffff;
+  color: #6a0dad;
+  border: 1px solid #6a0dad;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dashboard-header .user-options button:hover {
+  background-color: #6a0dad;
+  color: #ffffff;
+}
+
+/* Content Styles */
+.content {
+  padding: 2rem;
+}
+
+.content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Applications Table */
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.applications-table th,
+.applications-table td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.applications-table th {
+  background-color: #6a0dad;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.applications-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.status-badge.saved {
+  background-color: #999;
+}
+
+.status-badge.applied {
+  background-color: #007bff;
+}
+
+.status-badge.interviewing {
+  background-color: #ffc107;
+}
+
+.status-badge.offered {
+  background-color: #28a745;
+}
+
+.status-badge.rejected {
+  background-color: #dc3545;
+}
+
+.status-badge.accepted {
+  background-color: #17a2b8;
+}
+
+/* Buttons */
+.edit-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #ffffff;
+  margin-left: 0.5rem;
+}
+
+.delete-button:hover {
+  background-color: #a71d2a;
+}
+
+/* Add Application Form */
+.add-application-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.add-application-form h3 {
+  color: #6a0dad;
+  margin-bottom: 1rem;
+}
+
+.add-application-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.add-application-form input,
+.add-application-form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.add-application-form .form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.add-application-form button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-application-form button[type="button"]:first-child {
+  background-color: #6a0dad;
+  color: #ffffff;
+}
+
+.add-application-form button[type="button"]:first-child:hover {
+  background-color: #5a0b9d;
+}
+
+.add-application-form button[type="button"]:last-child {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.add-application-form button[type="button"]:last-child:hover {
+  background-color: #c0c0c0;
+}
+
+/* Floating Action Button */
+.fab-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6a0dad;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.fab-button:hover {
+  background-color: #5a0b9d;
+  transform: scale(1.1);
+}
